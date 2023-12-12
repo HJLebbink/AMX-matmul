@@ -1,0 +1,11 @@
+properties of asm file:
+
+General:
+*	Content: Yes
+*	Item Type: Custom Build Tool
+
+Custom Build Tool:
+*	Command Line: $(ProjectDir)nasm.exe -f win64 .\..\generated\asm\%(Filename).asm -o $(IntDir)%(Filename).obj
+*	Description: Assembling %(Filename).asm
+*	Outputs: $(IntDir)%(Filename).obj
+

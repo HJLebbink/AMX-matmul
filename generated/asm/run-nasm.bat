@@ -1,0 +1,1 @@
+ ..\..\amxmulwin\nasm -f win64 -o tdpbf16ps_N16_M16_K32_no_AMX.obj -l .\tdpbf16ps_N16_M16_K32_no_AMX.list.txt .\tdpbf16ps_N16_M16_K32_no_AMX.asm

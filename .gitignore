@@ -1,0 +1,10 @@
+/.vs/**
+/out/**
+**.pdb
+**/.vs/*
+/AmxMulWin/x64/**
+*.obj
+/AmxMulWin/debug.log
+/AmxMulWin/GPUCache/**
+/AmxMulWin/Intel® VTune™ Profiler Results/**
+/AmxMulWin/Intel_Inspector/**

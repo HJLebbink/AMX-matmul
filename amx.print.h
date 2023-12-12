@@ -1,11 +1,11 @@
 #pragma once
-#include <sstream>
-#include <ios> //hex
-#include <iomanip> //setw
-#include <type_traits>
 #include <cstdint>
+#include <iomanip> //setw
+#include <ios> //hex
 #include <iosfwd>
 #include <ostream>
+#include <sstream>
+#include <type_traits>
 
 #include "amx.types.h"
 

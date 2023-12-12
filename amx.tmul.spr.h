@@ -1,12 +1,12 @@
 #pragma once
 #include <immintrin.h>
 
+#include "amx.amx_matrix.h"
 #include "amx.tile.h"
 #include "amx.tile_config.h"
-#include "amx.amx_matrix.h"
-#include "generated/asm/amx.asm.h"
 #include "amx.tools.h"
 #include "amx.types.h"
+#include "generated/asm/amx.asm.h"
 #include <iostream>
 #include <ostream>
 

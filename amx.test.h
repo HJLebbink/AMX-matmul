@@ -1,17 +1,17 @@
 #pragma once
-#include <iostream> //std::cout
 #include <cstdint>
+#include <iostream> //std::cout
 #include <string>
 
+#include "amx.amx_matrix.h"
+#include "amx.matrix.h"
+#include "amx.print.h"
+#include "amx.test_data.h"
+#include "amx.tile.h"
 #include "amx.tmul.ref.h"
 #include "amx.tmul.spr.h"
-#include "amx.tile.h"
-#include "amx.matrix.h"
-#include "amx.test_data.h"
-#include "amx.amx_matrix.h"
-#include "amx.print.h"
-#include "amx.types.h"
 #include "amx.transpose.h"
+#include "amx.types.h"
 
 #include "generated/asm/amx.asm.h"
 

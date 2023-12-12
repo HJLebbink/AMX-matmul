@@ -1,27 +1,27 @@
-﻿#include <immintrin.h>
-#include <string>
-#include <iostream>
-#include <unordered_set>
-#include <array>
+﻿#include <array>
 #include <chrono>
 #include <cstdint>
+#include <immintrin.h>
+#include <iostream>
+#include <string>
+#include <unordered_set>
 #include <vector>
 
-#include "amx.tile_config.h"
-#include "amx.tools.h"
-#include "amx.test.h"
 #include "amx.benchmark.h"
 #include "amx.gen.h"
+#include "amx.test.h"
 #include "amx.tile.h"
+#include "amx.tile_config.h"
 #include "amx.tmul.spr.h"
+#include "amx.tools.h"
 #include "amx.types.h"
 
-#include "vecmul_example.h"
 #include "tools.timing.h"
+#include "vecmul_example.h"
 
+#include "example.deep1b.h"
 #include "example.vecmul.h"
 #include <intrin.h>
-#include "example.deep1b.h"
 
 namespace amx {
  
@@ -202,7 +202,7 @@ int main()
 
 
     // load deep1b data tests
-    if (true) {
+    if (false) {
         example::run();
     }
 
@@ -221,7 +221,7 @@ int main()
     }
 
     // run benchmark for graph
-    if (false) {
+    if (true) {
         std::vector<int>dims;
 
         dims.push_back(32);
@@ -255,7 +255,7 @@ int main()
         }
         else {
             constexpr int n_runs = 100;
-            amx::benchmark::benchmark_to_file("C:\\Source\\sneller\\AmxMul\\benchmark.csv", dims, n_runs);
+            amx::benchmark::benchmark_to_file("C:\\Source\\Github\\AMX-matmul\\experiments\\benchmark.csv", dims, n_runs);
         }
     }
 

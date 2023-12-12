@@ -1,22 +1,22 @@
 #pragma once
-#include <string>
-#include <ios> //hex
-#include <iomanip> //setw
-#include <iostream> //std::cout
+#include <bit>
 #include <cstdint>
 #include <cstdlib>
+#include <intrin.h>
+#include <iomanip> //setw
+#include <ios> //hex
 #include <iosfwd>
+#include <iostream> //std::cout
 #include <random>
 #include <sstream>
+#include <string>
 #include <utility>
-#include <intrin.h>
-#include <bit>
 
-#include "amx.tile.h"
 #include "amx.print.h"
-#include "amx.types.h"
+#include "amx.tile.h"
 #include "amx.tile_array.h"
 #include "amx.tools.h"
+#include "amx.types.h"
 
 namespace amx {
 

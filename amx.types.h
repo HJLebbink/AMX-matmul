@@ -1,6 +1,6 @@
 #pragma once
-#include <cstdint>
 #include <bit>
+#include <cstdint>
 #include <immintrin.h>
 #include <sstream>
 #include <string>

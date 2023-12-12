@@ -1,17 +1,17 @@
 #pragma once
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <tuple>
 #include <array>
-#include <iosfwd>
-#include <vector>
 #include <cstdint>
-#include <unordered_map>
-#include <regex>
-#include <memory>
 #include <intrin.h>
+#include <iosfwd>
+#include <iostream>
+#include <memory>
+#include <regex>
+#include <sstream>
+#include <string>
+#include <tuple>
+#include <unordered_map>
 #include <utility>
+#include <vector>
 
 #include "amx.amx_matrix.h"
 #include "amx.tools.h"

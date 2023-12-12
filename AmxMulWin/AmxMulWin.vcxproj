@@ -171,8 +171,8 @@
     <ClInclude Include="..\vecmul_example.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\benchmark.csv" />
     <None Include="..\CMakePresets.json" />
+    <None Include="..\experiments\benchmark.csv" />
     <None Include="..\generated\asm\run-nasm.bat" />
     <CustomBuild Include="..\generated\asm\tdpbssd_N16_M16_K64.asm">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
@@ -327,12 +327,16 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(Filename).obj</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(Filename).obj</Outputs>
     </CustomBuild>
+    <None Include="..\README.md" />
     <None Include="..\run-sde.bat" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\CMakeLists.txt" />
     <Text Include="..\generated\asm\howto.txt" />
     <Text Include="..\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\experiments\Matrix Multiplication BF16.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

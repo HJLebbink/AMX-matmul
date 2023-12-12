@@ -1,22 +1,22 @@
 #pragma once
 #include <array>
+#include <cstddef>
 #include <cstdint>
-#include <vector>
-#include <random>
+#include <immintrin.h>
+#include <iosfwd>
 #include <iostream>
 #include <ostream>
-#include <tuple>
-#include <immintrin.h>
-#include <cstddef>
-#include <iosfwd>
+#include <random>
 #include <sstream>
 #include <string>
+#include <tuple>
+#include <vector>
 
+#include "amx.print.h"
 #include "amx.tile_config.h"
+#include "amx.transpose.h"
 #include "amx.types.h"
 #include "tools.timing.h"
-#include "amx.print.h"
-#include "amx.transpose.h"
 #include <limits>
 
 

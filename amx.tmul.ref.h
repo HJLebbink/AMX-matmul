@@ -1,11 +1,11 @@
 #pragma once
-#include <iostream> //std::cout
 #include <cstdint>
+#include <iostream> //std::cout
 
-#include "amx.tile.h"
 #include "amx.amx_matrix.h"
-#include "amx.types.h"
+#include "amx.tile.h"
 #include "amx.tools.h"
+#include "amx.types.h"
 
 
 namespace amx::tmul::ref {

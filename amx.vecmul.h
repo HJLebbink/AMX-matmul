@@ -1,11 +1,11 @@
 #pragma once
-#include <vector>
-#include <immintrin.h>
 #include <array>
+#include <immintrin.h>
+#include <vector>
 
 #include "amx.tile_config.h"
-#include "amx.types.h"
 #include "amx.transpose.h"
+#include "amx.types.h"
 
 
 namespace amx {

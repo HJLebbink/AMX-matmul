@@ -1,23 +1,23 @@
 #pragma once
 #include <array>
 #include <cstdint>
+#include <fstream>
+#include <iomanip>
+#include <ios>
+#include <iosfwd>
 #include <iostream>
 #include <ostream>
 #include <string>
-#include <fstream>
-#include <iosfwd>
-#include <iomanip>
-#include <ios>
 #include <vector>
 
 #include "amx.amx_matrix.h"
 #include "amx.tile.h"
 #include "amx.tmul.ref.h"
-#include "amx.types.h"
 #include "amx.tmul.spr.h"
+#include "amx.types.h"
 
-#include "tools.timing.h"
 #include "generated/asm/amx.asm.h"
+#include "tools.timing.h"
 
 
 namespace amx::benchmark {

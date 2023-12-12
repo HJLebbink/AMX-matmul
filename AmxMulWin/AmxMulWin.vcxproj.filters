@@ -106,7 +106,10 @@
     <None Include="..\run-sde.bat">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\benchmark.csv">
+    <None Include="..\experiments\benchmark.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\README.md">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -164,5 +167,10 @@
     <CustomBuild Include="..\generated\asm\tdpbf16ps_N512_M512_K512.asm">
       <Filter>Header Files\asm</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\experiments\Matrix Multiplication BF16.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

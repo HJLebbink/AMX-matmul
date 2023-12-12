@@ -1,18 +1,18 @@
 #pragma once
 #include <immintrin.h>
-#include <vector>
 #include <iostream> //std::cout
 #include <random>
+#include <vector>
 
+#include "amx.tile_config.h"
+#include "amx.transpose.h"
+#include "amx.types.h"
 #include "amx.vecmul.h"
+#include "generated/asm/amx.asm.h"
 #include "tools.timing.h"
 #include <array>
 #include <cstddef>
 #include <iomanip>
-#include "amx.tile_config.h"
-#include "amx.transpose.h"
-#include "amx.types.h"
-#include "generated/asm/amx.asm.h"
 
 namespace amx {
 

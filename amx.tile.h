@@ -1,18 +1,18 @@
 #pragma once
-#include <string>
-#include <sstream>
-#include <iostream>
 #include <cstdlib>
 #include <iosfwd>
+#include <iostream>
+#include <sstream>
+#include <string>
 #include <typeinfo>
 
-#include "amx.types.h"
 #include "amx.print.h"
 #include "amx.tools.h"
-#include <utility>
+#include "amx.types.h"
+#include <bit>
 #include <cstdint>
 #include <type_traits>
-#include <bit>
+#include <utility>
 
 namespace amx {
 

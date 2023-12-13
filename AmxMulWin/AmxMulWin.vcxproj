@@ -150,7 +150,6 @@
     <ClCompile Include="..\amx.tile.h" />
     <ClCompile Include="..\amx.tile_config.h" />
     <ClCompile Include="..\amx.tmul.ref.h" />
-    <ClCompile Include="..\amx.tmul.skl.h" />
     <ClCompile Include="..\amx.tmul.spr.h" />
     <ClCompile Include="..\amx.tools.h" />
     <ClCompile Include="..\main.cpp" />

@@ -89,9 +89,6 @@
     <ClInclude Include="..\amx.transpose.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\example.deep1b.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\example.vecmul.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -99,12 +96,6 @@
   <ItemGroup>
     <None Include="..\generated\asm\run-nasm.bat">
       <Filter>Header Files\asm</Filter>
-    </None>
-    <None Include="..\CMakePresets.json">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\run-sde.bat">
-      <Filter>Resource Files</Filter>
     </None>
     <None Include="..\experiments\benchmark.csv">
       <Filter>Resource Files</Filter>
@@ -116,9 +107,6 @@
   <ItemGroup>
     <Text Include="..\generated\asm\howto.txt">
       <Filter>Header Files\asm</Filter>
-    </Text>
-    <Text Include="..\CMakeLists.txt">
-      <Filter>Resource Files</Filter>
     </Text>
     <Text Include="..\readme.txt">
       <Filter>Resource Files</Filter>

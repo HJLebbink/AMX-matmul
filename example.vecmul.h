@@ -144,8 +144,8 @@ namespace amx::example {
 			const std::byte* ptr_b = reinterpret_cast<const std::byte*>(data[i].data());
 
 			__m512 r = _mm512_setzero_ps();
-			for (int i = 0; i < LENGTH / 32; ++i) {
-				const int offset = i << 6;
+			for (int j = 0; j < LENGTH / 32; ++j) {
+				const int offset = j << 6;
 				const __m512bh av = _mm512_load_ph(ptr_a + offset);
 				const __m512bh bv = _mm512_load_ph(ptr_b + offset);
 				r = _mm512_dpbf16_ps(r, av, bv);
@@ -175,8 +175,8 @@ namespace amx::example {
 
 			if (false) {
 				__m512 r = _mm512_setzero_ps();
-				for (int i = 0; i < LENGTH / 8; ++i) {
-					const int offset = i << 6;
+				for (int j = 0; j < LENGTH / 8; ++j) {
+					const int offset = j << 6;
 
 					__m512d a1a = _mm512_loadu_pd(ptr_a + offset + (0 * 64));
 					__m512d a1b = _mm512_loadu_pd(ptr_a + offset + (1 * 64));
@@ -212,8 +212,8 @@ namespace amx::example {
 			}
 			else {
 				__m128 r = _mm_setzero_ps();
-				for (int i = 0; i < LENGTH / 32; ++i) {
-					const int offset = i << 6;
+				for (int j = 0; j < LENGTH / 32; ++j) {
+					const int offset = j << 6;
 
 					__m512d a1a = _mm512_loadu_pd(ptr_a + offset);
 					__m256 a2a = _mm512_cvtpd_ps(a1a);
@@ -249,8 +249,8 @@ namespace amx::example {
 			const std::byte* ptr_b = reinterpret_cast<const std::byte*>(data[i].data());
 
 			__m512d r = _mm512_setzero_pd();
-			for (int i = 0; i < LENGTH / 8; ++i) {
-				const int offset = i << 4;
+			for (int j = 0; j < LENGTH / 8; ++j) {
+				const int offset = j << 4;
 				const __m512d av = _mm512_cvtps_pd(_mm256_cvtpbh_ps(_mm_loadu_ph(ptr_a + offset)));
 				const __m512d bv = _mm512_cvtps_pd(_mm256_cvtpbh_ps(_mm_loadu_ph(ptr_b + offset)));
 				r = _mm512_fmadd_pd(av, bv, r);
@@ -278,8 +278,8 @@ namespace amx::example {
 			const std::byte* ptr_b = reinterpret_cast<const std::byte*>(data[i].data());
 
 			__m512d r = _mm512_setzero_pd();
-			for (int i = 0; i < LENGTH / 8; ++i) {
-				const int offset = i << 6;
+			for (int j = 0; j < LENGTH / 8; ++j) {
+				const int offset = j << 6;
 				const __m512d av = _mm512_load_pd(ptr_a + offset);
 				const __m512d bv = _mm512_load_pd(ptr_b + offset);
 				r = _mm512_fmadd_pd(av, bv, r);
@@ -375,7 +375,6 @@ namespace amx::example {
 
 		if (true) {
 			std::cout << "data before: " << std::endl;
-			int idx = 0;
 			for (int j = 0; j < 16; ++j) {
 				for (int i = 0; i < 512; ++i) {
 					std::cout << bf16_to_float(needle16[j][i]) << " ";
@@ -387,7 +386,6 @@ namespace amx::example {
 		}
 		if (false) {
 			std::cout << "needle before: " << std::endl;
-			int idx = 0;
 			for (int j = 0; j < 16; ++j) {
 				for (int i = 0; i < 512; ++i) {
 					std::cout << bf16_to_float(data[j][i]) << " ";
@@ -496,7 +494,7 @@ namespace amx::example {
 				data = std::vector<std::array<BF16, vector_length>>(16);
 
 				for (int j = 0; j < 16; ++j) {
-					const BF16 v = amx::float_to_bf16(j);
+					const BF16 v = amx::float_to_bf16(float(j));
 					for (int i = 0; i < vector_length; ++i) {
 						data[j][i] = v;
 						needle16[j][i] = v;

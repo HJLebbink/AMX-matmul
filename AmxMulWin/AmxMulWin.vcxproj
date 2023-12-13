@@ -164,14 +164,12 @@
     <ClInclude Include="..\amx.transpose.h" />
     <ClInclude Include="..\amx.types.h" />
     <ClInclude Include="..\amx.vecmul.h" />
-    <ClInclude Include="..\example.deep1b.h" />
     <ClInclude Include="..\example.vecmul.h" />
     <ClInclude Include="..\generated\asm\amx.asm.h" />
     <ClInclude Include="..\str.h" />
     <ClInclude Include="..\vecmul_example.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\CMakePresets.json" />
     <None Include="..\experiments\benchmark.csv" />
     <None Include="..\generated\asm\run-nasm.bat" />
     <CustomBuild Include="..\generated\asm\tdpbssd_N16_M16_K64.asm">
@@ -328,10 +326,8 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(Filename).obj</Outputs>
     </CustomBuild>
     <None Include="..\README.md" />
-    <None Include="..\run-sde.bat" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\CMakeLists.txt" />
     <Text Include="..\generated\asm\howto.txt" />
     <Text Include="..\readme.txt" />
   </ItemGroup>

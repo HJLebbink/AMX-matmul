@@ -18,8 +18,6 @@
 
 #include "tools.timing.h"
 #include "vecmul_example.h"
-
-#include "example.deep1b.h"
 #include "example.vecmul.h"
 #include <intrin.h>
 
@@ -200,51 +198,64 @@ int main()
         std::cout << "Could not setup AMX" << std::endl;
     }
 
-
-    // load deep1b data tests
-    if (false) {
-        example::run();
+    // generate optimized assembly code by minimizing the number of memory spills
+    if (true) {
+        amx::gen::generate_all("C:\\Source\\Github\\AMX-matmul\\generated\\asm\\");
     }
 
-    // generate code
-    if (false) { 
-        amx::gen::generate_all();
-    }
-
-    // run tests
+    // run tests to determine the correctness of implementations
     if (false) {
         const int n_experiments = 100;
-        amx::test::test_1x1x1_tiles_tdpbf16ps(n_experiments);
-        amx::test::test_2x2x2_tiles_tdpbf16ps(n_experiments);
-        //amx::test::test_1x1x1_tiles_tdpbssd(n_experiments);
-        //amx::test::test_2x2x2_tiles_tdpbssd(n_experiments);
+        amx::test::test_correctness_1x1x1_tiles_tdpbf16ps(n_experiments);
+        amx::test::test_correctness_2x2x2_tiles_tdpbf16ps(n_experiments);
+        amx::test::test_correctness_1x1x1_tiles_tdpbssd(n_experiments);
+        amx::test::test_correctness_2x2x2_tiles_tdpbssd(n_experiments);
     }
 
     // run benchmark for graph
-    if (true) {
+    if (false) {
         std::vector<int>dims;
+        { // fill the vector of dimensions (N,M,K)
+            dims.push_back(32);
 
-        dims.push_back(32);
-        
-        int dim = 64;
-        for (int i = 0; i < 10; ++i) {
-            dims.push_back(dim);
-            dim += 1 * 64;
+            int dim = 64;
+            for (int i = 0; i < 10; ++i) {
+                dims.push_back(dim);
+                dim += 1 * 64;
+            }
+            for (int i = 0; i < 10; ++i) {
+                dims.push_back(dim);
+                dim += 2 * 64;
+            }
+            for (int i = 0; i < 10; ++i) {
+                dims.push_back(dim);
+                dim += 4 * 64;
+            }
+            /*
+            for (int i = 0; i < 10; ++i) {
+                dims.push_back(dim);
+                dim += 6 * 64;
+            }
+            */
         }
-        for (int i = 0; i < 10; ++i) {
-            dims.push_back(dim);
-            dim += 2 * 64;
-        }
-        for (int i = 0; i < 10; ++i) {
-            dims.push_back(dim);
-            dim += 4 * 64;
-        }
-        //for (int i = 0; i < 10; ++i) {
-        //    dims.push_back(dim);
-        //    dim += 6 * 64;
-        //}
+        if (true) { // print read/load of tiles
 
-        if (false) { // print read/load of tiles
+            /* 
+            N = 64; M = 64; K = 64; Nt = 4; Mt = 4; Kt = 2
+            Matrix size : C(16KB) += (8KB) * B(8KB)
+            Matrix size : C(0MB) += A(0MB) * B(0MB)
+            tdpbf16pf AMX3 : load C tiles : 32;        load A& B tiles : 64;     save C tiles 32;        mem: 128KB;     0MB
+            tdpbf16pf AMX2 : stream load C tiles : 16;        load A& B tiles : 64;     save C tiles 16;        mem: 80KB;      0MB
+            tdpbf16pf  AMX : stream load C tiles : 16;        load A& B tiles : 32;     save C tiles 16;        mem: 48KB;      0MB
+
+            N = 128; M = 128; K = 128; Nt = 8; Mt = 8; Kt = 4
+            Matrix size : C(64KB) += (32KB) * B(32KB)
+            Matrix size : C(0MB) += A(0MB) * B(0MB)
+            tdpbf16pf AMX3 : load C tiles : 256;       load A& B tiles : 512;    save C tiles 256;       mem: 1024KB;    1MB
+            tdpbf16pf AMX2 : stream load C tiles : 64;        load A& B tiles : 512;    save C tiles 64;        mem: 576KB;     0MB
+            tdpbf16pf  AMX : stream load C tiles : 64;        load A& B tiles : 256;    save C tiles 64;        mem: 320KB;     0MB
+            */
+
 
             std::cout << "SapphireRapids: L1: 80KB/core" << std::endl;
             std::cout << "SapphireRapids: L2: 2MB/core" << std::endl;
@@ -253,7 +264,7 @@ int main()
                 amx::tmul::spr::print_statistics(i, i, i);
             }
         }
-        else {
+        if (true) { // run the benchmarks and save to file
             constexpr int n_runs = 100;
             amx::benchmark::benchmark_to_file("C:\\Source\\Github\\AMX-matmul\\experiments\\benchmark.csv", dims, n_runs);
         }
@@ -276,7 +287,8 @@ int main()
         //amx::benchmark::tdpbssd(256, 256, 256, 1000);
     }
 
-    if (false) { // test to see the disassembled code for _mm512_cvtpbh_ps
+    // code to see the disassembled instructions for _mm512_cvtpbh_ps
+    if (false) { 
         __debugbreak();
         __m256bh y = _mm256_setr_epi16(
             amx::float_to_bf16(0), amx::float_to_bf16(1), amx::float_to_bf16(2), amx::float_to_bf16(3),
@@ -303,6 +315,7 @@ int main()
         }
     }
 
+    //TODO describe
     if (false) {
         if (false) amx::print_influence(1, 1);
         amx::print_influence2();

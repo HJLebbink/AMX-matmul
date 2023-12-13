@@ -82,7 +82,7 @@ namespace amx::test {
 		}
 	}
 
-	inline void test_1x1x1_tiles_tdpbf16ps(const int n_experiments)
+	inline void test_correctness_1x1x1_tiles_tdpbf16ps(const int n_experiments)
 	{
 		constexpr int N = 16;
 		constexpr int M = 16;
@@ -246,7 +246,7 @@ namespace amx::test {
 		std::cout << "OK: test_1x1x1_tiles_tdpbf16ps (n_experiments " << n_experiments << ")" << std::endl;
 	}
 
-	inline void test_2x2x2_tiles_tdpbf16ps(const int n_experiments)
+	inline void test_correctness_2x2x2_tiles_tdpbf16ps(const int n_experiments)
 	{
 		constexpr int N = 2 * 16;
 		constexpr int M = 2 * 16;
@@ -359,7 +359,7 @@ namespace amx::test {
 		std::cout << "OK: test_2x2x2_tiles_tdpbf16ps (n_experiments " << n_experiments << ")" << std::endl;
 	}
 
-	inline void test_1x1x1_tiles_tdpbssd(const int n_experiments)
+	inline void test_correctness_1x1x1_tiles_tdpbssd(const int n_experiments)
 	{
 		constexpr int N = 16;
 		constexpr int M = 16;
@@ -511,7 +511,7 @@ namespace amx::test {
 		std::cout << "OK: test_1x1x1_tiles_tdpbssd (n_experiments " << n_experiments << ")" << std::endl;
 	}
 
-	inline void test_2x2x2_tiles_tdpbssd(const int n_experiments)
+	inline void test_correctness_2x2x2_tiles_tdpbssd(const int n_experiments)
 	{
 		constexpr int N = 2 * 16;
 		constexpr int M = 2 * 16;

@@ -84,47 +84,6 @@ namespace amx::gen {
 			return false;
 		}
 
-		[[nodiscard]] bool free_one_slot_2(MatrixKey keep_name_1, MatrixKey keep_name_2, int pos, const std::vector<UpdateClause>& data) {
-			
-			std::vector<int> consider_for_eviction;
-						
-			for (int i = 0; i < 8; ++i) {
-				const MatrixKey key = this->data_[i];
-				if (key == 0) {
-					return true; // unexpected, but found an empty slot, no register needs to be evicted
-				}
-				if ((key != keep_name_1) && (key != keep_name_2) && !has_type_C(key)) {
-					consider_for_eviction.push_back(i);
-				}
-			}
-			const int n_alternatives = static_cast<int>(consider_for_eviction.size());
-			if (n_alternatives == 0) {
-				return false;
-			}
-			if (n_alternatives == 1) {
-				this->data_[consider_for_eviction[0]] = 0; // evict register
-				return true;
-			}
-			// different strategies are possible: evict the one that is kept in the register the longest without being used.
-
-
-			std::vector<int> count;
-			int counter1 = 0;
-			for (int i = 0; i < n_alternatives; ++i) {
-				const MatrixKey key = consider_for_eviction[i];
-				
-				int counter = 0;
-				for (int i = pos; i < data.size(); ++i) {
-					//data[i]
-				}
-			}
-
-
-
-
-			return false;
-		}
-
 		[[nodiscard]] int add(MatrixKey name) {
 			const int reg = get(name);
 			if (reg == -1) {
@@ -718,10 +677,8 @@ namespace amx::gen {
 		amx::tools::save_code_ansi(filename, content_asm);
 	}
 
-	inline void generate_all() 
+	inline void generate_all(const std::string& path_asm) 
 	{
-		const std::string path_asm = "C:\\Source\\sneller\\AmxMul\\generated\\asm\\";
-
 		if (true) {
 			generate_tdpbf16ps(32, 32, 64, true, path_asm);
 		}

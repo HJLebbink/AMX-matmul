@@ -89,7 +89,7 @@ namespace amx::benchmark {
 	inline void tdpbf16ps(int N, int M, int K, int n_benchmarks = 10000)
 	{
 		uint64_t fastest_cpp = 100000000000;
-		uint64_t fastest_icl = 100000000000;
+		//uint64_t fastest_icl = 100000000000;
 		uint64_t fastest_no_amx = 100000000000;
 		uint64_t fastest_no_amx_old = 100000000000;
 		uint64_t fastest_dyn_amx3 = 100000000000;

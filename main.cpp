@@ -186,6 +186,33 @@ namespace amx {
 
         _tile_release();
     }
+
+    inline void example_simple() {
+        alignas(64) std::array<BF16, 512> buf_a, buf_b, buf_bt;
+        alignas(64) std::array<float, 256> buf_c;
+
+        Tile<BF16> tA = Tile<BF16>(buf_a.data());
+        Tile<BF16> tB = Tile<BF16>(buf_b.data());
+        Tile<BF16> tBt = Tile<BF16>(buf_bt.data());
+        Tile<FP32> tC = Tile<FP32>(buf_c.data());
+
+        tA.clear();
+        tB.clear();
+        tC.clear();
+
+        tA.set(1, 2, float_to_bf16(1.));
+        tB.set(1, 2, float_to_bf16(1.));
+        transpose_BF16(tB.data(), tBt.data());
+
+        std::cout << "tA: " << tA.pretty_print(true, tools::PrintType::bf16) << std::endl;
+        std::cout << "tB: " << tB.pretty_print(true, tools::PrintType::bf16) << std::endl;
+        std::cout << "tBt: " << tBt
+            .pretty_print(true, tools::PrintType::bf16) << std::endl;
+
+
+        tmul::ref::tdpbf16ps_intel_doc(tC, tA, tBt);
+        std::cout << "tC: " << tC.pretty_print(true, tools::PrintType::dec) << std::endl;
+    }
 }
 
 int main()
@@ -198,8 +225,12 @@ int main()
         std::cout << "Could not setup AMX" << std::endl;
     }
 
-    // generate optimized assembly code by minimizing the number of memory spills
     if (true) {
+        amx::example_simple();
+    }
+
+    // generate optimized assembly code by minimizing the number of memory spills
+    if (false) {
         amx::gen::generate_all("C:\\Source\\Github\\AMX-matmul\\generated\\asm\\");
     }
 

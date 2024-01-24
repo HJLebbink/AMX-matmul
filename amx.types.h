@@ -69,7 +69,6 @@ namespace amx {
     using Int32 = int;
     using Int8 = int8_t;
     using Uint8 = uint8_t;
-    using Int32 = int32_t;
 
     inline constexpr [[nodiscard]] float bf16_to_float(BF16 v) noexcept {
         return std::bit_cast<float>(static_cast<uint32_t>(v) << 16);
